@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<view class="background-container">
+  <image class="cat-image" src="/assets/cat.png" mode="aspectFill"></image>
+</view>
+
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 顶部区域 -->
+    <view class="header">
+      <image class="logo" src="/assets/logo.png" alt="尚弦AI Logo" />
+      <text class="app-name">尚弦AI</text>
+    </view>
+
+    <!-- 欢迎信息 -->
+    <view class="welcome-box">
+      <text class="welcome-text">哇塞🥳，欢迎闯入尚弦 AI 的奇妙天地！</text>
+      <view class="feature-item">• 搞音乐创作，它是灵感小精灵✨；</view>
+      <view class="feature-item">• 学知识，它是超会科普的万事通📚；</view>
+      <view class="feature-item">• 钻研 AI，它是超酷领路人🤖；</view>
+      <view class="feature-item">• 编程遇难题，它秒变超级英雄🦸。</view>
+      <text class="welcome-text">快和我开启嗨聊吧～～</text>
+    </view>
+
+    <!-- 示例问题 - 每个问题独立容器 -->
+    <view class="question-container-first">
+      <view class="question-item">如何确定音乐创作的主题风格？</view>
+    </view>
+    
+    <view class="question-container-second">
+      <view class="question-item">在 Python 编程中，如何高效地处理数据？</view>
+    </view>
+    
+    <view class="question-container-third">
+      <view class="question-item">我想创作一首欢快的流行歌曲，
+有哪些合适的和弦走向？</view>
+    </view>
+
+    <!-- 在第三个问题和输入框之间添加音乐灵感板块 -->
+    <view class="inspiration-container">
+      <view class="inspiration-item">
+        <text class="inspiration-icon">🎵</text>
+        <text class="inspiration-text">音乐灵感</text>
+      </view>
+    </view>
+
+    <!-- 在问题容器后面添加消息展示区域 -->
+    <view class="messages-container" wx:if="{{showMessages}}">
+      <block wx:for="{{messages}}" wx:key="index">
+        <view class="message {{item.isUser ? 'user-message' : 'ai-message'}}">
+          <view class="message-content">{{item.content}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 在消息列表后添加推荐问题区域 -->
+    <view class="suggestion-container" wx:if="{{suggestedQuestions.length > 0}}">
+      <view class="suggestion-title">您可能想问：</view>
+      <view class="suggestion-list">
+        <view class="suggestion-item" 
+              wx:for="{{suggestedQuestions}}" 
+              wx:key="index" 
+              bindtap="onTapSuggestedQuestion" 
+              data-question="{{item}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部交互区域 -->
+    <view class="input-area">
+      <view class="file-icon">📎</view>
+      <view class="input-container">
+        <input class="input-box" placeholder="发送消息..." bindinput="onInput" value="{{inputValue}}"/>
+        <view class="action-buttons">
+          <view class="circle-button add-button" bindtap="onAddButtonClick">+</view>
+          <view class="circle-button mic-button" bindtap="onMicButtonClick">🎤</view>
+        </view>
+      </view>
+      <view class="send-button" bindtap="sendMessage">发送</view>
+    </view>
+  </view>
+</scroll-view>

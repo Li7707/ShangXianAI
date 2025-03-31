@@ -1,0 +1,277 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.container {
+  background: rgba(224, 247, 250, 0.7);
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+.header {
+  width: 33%; /* 修改为100%让它自适应 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bb5;
+  padding: 15px;
+  border-radius: 20px;
+  margin: 0 auto; /* 居中 */
+  max-width: 300px; /* 限制最大宽度 */
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.app-name {
+  color: white;
+  font-size: 20px;
+}
+
+.welcome-box {
+  background-color: white;
+  padding: 15px;
+  margin: 20px 0 0 0;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.welcome-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.feature-item {
+  margin: 5px 0;
+  text-align: left;
+}
+
+/* 问题容器样式优化 */
+.question-container-first,
+.question-container-second,
+.question-container-third {
+  margin-top: 20px; /* 将100px减少到20px，整体上移 */
+  text-align: left;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.question-container-second {
+  margin-top: -20px; /* 保持第二个问题相对于第一个问题的位置 */
+}
+
+.question-container-third {
+  margin-top: -20px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.question-item {
+  background-color: white;
+  padding: 12px 18px;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: pre-wrap !important;
+  display: block;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* 特别针对第三个问题的样式 */
+.question-container-third .question-item {
+  width: 80%;
+  font-size: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* 重新设计输入区域 - 简洁风格 */
+.input-area {
+  position: fixed;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  max-width: 600px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.file-icon {
+  width: 44px;
+  height: 44px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.input-container {
+  flex: 1;
+  height: 44px;
+  background-color: white;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.input-box {
+  flex: 1;
+  height: 100%;
+  border: none;
+  font-size: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.circle-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.add-button {
+  color: #333;
+  margin-right: 10px;
+}
+
+.mic-button {
+  color: #333;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.cat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 音乐灵感板块样式 */
+.inspiration-container {
+  position: fixed;
+  bottom: 80px; /* 调整位置，使其在输入框上方 */
+  left: 20px;
+  z-index: 9;
+}
+
+.inspiration-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.inspiration-icon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.inspiration-text {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 添加消息区域样式 */
+.messages-container {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.message {
+  display: flex;
+  margin: 10px 0;
+  max-width: 85%;
+}
+
+.user-message {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.ai-message {
+  justify-content: flex-start;
+  margin-right: auto;
+}
+
+.message-content {
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 16px;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.user-message .message-content {
+  background-color: #007bb5;
+  color: white;
+}
+
+.ai-message .message-content {
+  background-color: white;
+  color: #333;
+}
+
+/* 推荐问题样式 */
+.suggestion-container {
+  margin: 15px 0;
+  padding: 10px;
+}
+
+.suggestion-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.suggestion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestion-item {
+  background-color: #f0f9ff;
+  padding: 8px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  color: #0085c7;
+  border: 1px solid #ddeffd;
+}
